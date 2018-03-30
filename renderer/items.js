@@ -29,18 +29,19 @@ exports.changeItem = (direction) => {
 
 // Open items for reading
 exports.openItem = () => {
-    if(!this.toreadItems.length) {
-        return
-    }
+    if(!this.toreadItems.length) return
 
     // Get selected item
     let targetItem = $(".read-item.is-active")
 
-    // Get items content url
-    let contentURL = targetItem.data("url")
+    // Get items content url (encoded)
+    let contentURL = encodeURIComponent(targetItem.data("url"))
 
-    console.log("Opening item");
-    console.log(contentURL);
+    // Reader win URL
+    let readerWinURL = `file://${__dirname}/reader.html?url=${contentURL}`
+
+    // Open item in new proxy BrowserWindow
+    let readerWin = window.open(readerWinURL, targetItem.data("title"))
 }
 
 // Add new item
@@ -49,7 +50,7 @@ exports.addItem = (item) => {
     $("#no-items").hide()
 
     // New item html
-    let itemHTML = `<a class="panel-block read-item" data-url="${item.url}">
+    let itemHTML = `<a class="panel-block read-item" data-url="${item.url}" data-title="${item.title}">
                         <figure class="image has-shadow is-64x64 thumb">
                             <img src="${item.screenshot}" />
                         </figure>
