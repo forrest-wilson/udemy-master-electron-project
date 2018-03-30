@@ -1,8 +1,14 @@
-const {app} = require("electron")
+const {app, ipcMain} = require("electron")
 const mainWindow = require("./mainWindow")
 
 // Enables Electron-Reload
 require("electron-reload")(__dirname)
+
+ipcMain.on("new-item", (e, itemURL) => {
+    setTimeout(() => {
+        e.sender.send("new-item-success", "new read item")
+    }, 3000)
+})
 
 // Called when electron has finished initialization and
 // is ready to create browser windows
