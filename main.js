@@ -8,8 +8,6 @@ require("electron-reload")(__dirname)
 ipcMain.on("new-item", (e, itemURL) => {
     // Get read item with readItem module
     readItem(itemURL, (item) => {
-        
-        console.log(item);
         // Send to renderer
         e.sender.send("new-item-success", item)
     })
