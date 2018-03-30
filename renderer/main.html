@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReadIt</title>
+
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="panel">
+
+        <div class="panel-heading">
+            <div class="control is-grouped">
+                <p class="control">
+                    <a class="button is-primary">
+                        <span class="icon is-small">
+                            <i class="fa fa-plus"></i>
+                        </span>
+                    </a>
+                </p>
+                <p class="control is-expanded has-icon has-icon-right">
+                    <input type="text" class="input" id="search">
+                    <span class="icon is-small">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!-- Close .panel-heading -->
+
+        <div id="read-list" class="empty">
+            <p id="no-items" class="has-text-centered">No Items</p>
+        </div>
+
+    </div>
+    <!-- Close .panel -->
+
+    <script>
+        // jQuery
+        $ = require("jquery");
+
+        // Main app js file
+        require("./app.js")    
+    </script>
+</body>
+</html>

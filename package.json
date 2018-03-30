@@ -1,0 +1,33 @@
+{
+  "name": "udemy-master-electron-project",
+  "version": "1.0.0",
+  "description": "An Electron project from the Master Electron Udemy course",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forrest-wilson/udemy-master-electron-project.git"
+  },
+  "keywords": [
+    "Electron",
+    "JS",
+    "Udemy"
+  ],
+  "author": "Forrest Wilson-Jennings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forrest-wilson/udemy-master-electron-project/issues"
+  },
+  "homepage": "https://github.com/forrest-wilson/udemy-master-electron-project#readme",
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-reload": "^1.2.2"
+  },
+  "dependencies": {
+    "bulma": "^0.3.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1"
+  }
+}
