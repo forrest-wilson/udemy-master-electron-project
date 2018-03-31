@@ -29,7 +29,11 @@ exports.changeItem = (direction) => {
 
 // Window function
 // Delete item by index
-window.deleteItem = (i) => {
+window.deleteItem = (i = false) => {
+
+    // Set i to active item if not passed as an argument
+    if (i === false) (i = $(".read-item.is-active").index() - 1)
+
     // Remove item from DOM
     $(".read-item").eq(i).remove()
 
@@ -53,8 +57,19 @@ window.deleteItem = (i) => {
     }
 }
 
+window.openInBrowser = () => {
+    // Only run if the item exists
+    if (!this.toreadItems.length) return
+
+    // Get selected item
+    let targetItem = $(".read-item.is-active")
+
+    // Open in default browser
+    require("electron").shell.openExternal(targetItem.data("url"))
+}
+
 // Open items for reading
-exports.openItem = () => {
+window.openItem = () => {
     if(!this.toreadItems.length) return
 
     // Get selected item
@@ -93,5 +108,5 @@ exports.addItem = (item) => {
     $(".read-item")
         .off("click", "dblclick")
         .on("click", this.selectItem)
-        .on("dblclick", this.openItem)
+        .on("dblclick", window.openItem)
 }
