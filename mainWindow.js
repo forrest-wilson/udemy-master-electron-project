@@ -10,11 +10,9 @@ exports.createWindow = () => {
         height: 650,
         minWidth: 350,
         maxWidth: 650,
-        minHeight: 310
+        minHeight: 310,
+        icon: `${__dirname}/icons/64x64.png` // Icon for Linux distribution
     })
-
-    // Devtools
-    this.win.webContents.openDevTools()
     
     // Load main window content
     this.win.loadURL(`file://${__dirname}/renderer/main.html`)
